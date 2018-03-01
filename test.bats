@@ -27,6 +27,8 @@ teardown() {
     sls --zip=true package
     unzip .serverless/sls-py-req-test.zip -d puck
     ls puck/.requirements.zip puck/unzip_requirements.py
+    unzip puck/.requirements.zip -d puck2
+    ! ls puck2/boto3
 }
 
 @test "py3.6 doesn't package boto3 by default" {
@@ -48,6 +50,8 @@ teardown() {
     sls --dockerizePip=true --zip=true package
     unzip .serverless/sls-py-req-test.zip -d puck
     ls puck/.requirements.zip puck/unzip_requirements.py
+    unzip puck/.requirements.zip -d puck2
+    ! ls puck2/boto3
 }
 
 @test "py3.6 can package flask with dockerizePip option" {
@@ -68,6 +72,8 @@ teardown() {
     sls --runtime=python2.7 --zip=true package
     unzip .serverless/sls-py-req-test.zip -d puck
     ls puck/.requirements.zip puck/unzip_requirements.py
+    unzip puck/.requirements.zip -d puck2
+    ! ls puck2/boto3
 }
 
 @test "py2.7 doesn't package boto3 by default" {
@@ -89,6 +95,8 @@ teardown() {
     sls --dockerizePip=true --runtime=python2.7 --zip=true package
     unzip .serverless/sls-py-req-test.zip -d puck
     ls puck/.requirements.zip puck/unzip_requirements.py
+    unzip puck/.requirements.zip -d puck2
+    ! ls puck2/boto3
 }
 
 @test "py2.7 can package flask with dockerizePip option" {
@@ -113,6 +121,8 @@ teardown() {
     sls --zip=true package
     unzip .serverless/sls-py-req-test.zip -d puck
     ls puck/.requirements.zip puck/unzip_requirements.py
+    unzip puck/.requirements.zip -d puck2
+    ! ls puck2/boto3
 }
 
 @test "pipenv py3.6 doesn't package boto3 by default" {
@@ -137,6 +147,8 @@ teardown() {
     sls --zip=true package
     unzip .serverless/sls-py-req-test.zip -d puck
     ls puck/.requirements.zip puck/unzip_requirements.py
+    unzip puck/.requirements.zip -d puck2
+    ! ls puck2/boto3
 }
 
 @test "py3.6 can package flask with package individually option" {
