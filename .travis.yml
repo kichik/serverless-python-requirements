@@ -1,0 +1,25 @@
+language: python
+node_js:
+- "8"
+python:
+- "2.7"
+- "3.6"
+os:
+- linux
+- osx
+sudo: required
+services:
+- docker
+before_install:
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install curl unzip bats; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install curl unzip bats; fi
+install:
+- sudo npm install -g serverless depcheck
+- sudo pip install pipenv
+before_script:
+- npm install
+script:
+- depcheck .
+- npm run lint
+- npm run test
