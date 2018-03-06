@@ -4,6 +4,10 @@ node_js:
 os:
 - linux
 - osx
+cache:
+  pip: true
+  directories:
+  - node_modules # NPM packages
 dist: xenial
 sudo: required
 services:
