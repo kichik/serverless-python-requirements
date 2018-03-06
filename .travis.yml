@@ -16,8 +16,8 @@ before_install:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install curl unzip bats; fi  # python3
 install:
-- sudo npm install -g serverless depcheck
-- sudo python -m pip install pipenv
+- npm install -g serverless depcheck
+- python -m pip install pipenv
 before_script:
 - npm install
 script:
